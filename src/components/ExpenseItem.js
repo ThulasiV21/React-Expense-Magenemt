@@ -1,5 +1,8 @@
 function ExpenseItem() {
-    return <h2>Expense Item!</h2>
+    return (<div>
+        <div>March 28 2021</div>
+        <h2>Car Insurance</h2>
+        <div>$249.67</div>
+    </div>);
 }
-
 export default ExpenseItem;
