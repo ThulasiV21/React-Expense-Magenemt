@@ -25,7 +25,8 @@ const ExpenseForm = (props) => {
             amount: enteredAmount,
             date: new Date(enteredDate)
         };
-
+        // Calling the parent's defined event handler and passing args or in this case
+        // the args is data object to the parent
         props.onSaveExpenseData(expenseData);
         setEnteredTitle('');
         setEnteredAmount('');
