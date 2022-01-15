@@ -5,6 +5,7 @@ import './ExpenseItem.css';
 
 const ExpenseItem = (expenseprops) => {
     return (
+        <li>
     <Card className='expense-item'>
         <ExpenseDate date={expenseprops.date}/>
         <div className='expense-item__description'>
@@ -12,6 +13,7 @@ const ExpenseItem = (expenseprops) => {
         <div className='expense-item__price'>${expenseprops.amount}</div>
         </div>
         <button>Change Title</button>
-    </Card>);
+    </Card>
+    </li>);
 }
 export default ExpenseItem;
