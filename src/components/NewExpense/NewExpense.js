@@ -1,9 +1,10 @@
+import { useState } from 'react';
 import ExpenseForm from './ExpenseForm';
 import './NewExpense.css';
 
 const NewExpense = (props) => {
-    // Creating developer-defined event handlers to pass on the child component or objects
-    // from child components (data) to parent component
+
+    const [isEditing, setIsEditing] = useState(false);
     const saveExpenseDataHandler = (enteredexpenseData) => {
         const expenseData = {
             ...enteredexpenseData,
@@ -11,12 +12,21 @@ const NewExpense = (props) => {
         };
         // Calling the App's (or parent's) event handler
         props.onAddExpense(expenseData);
-        console.log(expenseData);
+        setIsEditing(false);
     };
+    
+    const startEditingHandler = () => {
+        setIsEditing(true);
+    };
+
+    const stopEditingHandler = () => {
+        setIsEditing(false);
+    };
+    
     return (
         <div className="new-expense">
-            {/* Defining the event listener here */}
-            <ExpenseForm onSaveExpenseData={saveExpenseDataHandler}/>
+            {!isEditing && <button onClick={startEditingHandler}>Add New Expense</button>}
+            {isEditing && <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} onCancel={stopEditingHandler}/>}
         </div>
     );
 };
